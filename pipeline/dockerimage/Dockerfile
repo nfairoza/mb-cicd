@@ -1,13 +1,8 @@
-FROM golang:1.9-alpine as builder
-ADD https://github.com/golang/dep/releases/download/v0.4.1/dep-linux-amd64 /usr/bin/dep
-RUN apk update && apk upgrade && apk add --no-cache bash git openssh
-RUN chmod +x /usr/bin/dep
-
-WORKDIR ${TRAVIS_HOME}/gopath/src/github.com/malike/cloud-native-kubernetes/go-service
-COPY . ./
-RUN go build -o /go/bin/goservice ./main.go
-
-FROM alpine
-COPY --from=builder /go/bin/goservice ./
-EXPOSE 8079
-ENTRYPOINT ["./goservice"]
+FROM 239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd 
+RUN apk update && apk upgrade && apk add --no-cache 
+RUN chmod +x /usr/bin
+RUN rm -r /var/www/html/drupalsite
+COPY ./../../drupalsite /var/www/html/drupalsite
+RUN chmod +x /var/www/html/drupalsite
+RUN /etc/init.d/apache2 reload
+EXPOSE 80

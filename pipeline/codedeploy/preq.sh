@@ -2,3 +2,4 @@
 sudo su
 apt update
 wget -qO- https://get.docker.com/ | sh
+docker --version

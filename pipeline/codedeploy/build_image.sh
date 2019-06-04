@@ -2,8 +2,7 @@
 echo "Building docker IMAGE "
 cd ../dockerimage/
 echo "Switching directory " `pwd` 
-export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-export IMAGE_NAME=stmalike/$SERVICE_DIR
+export IMAGE_NAME=239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd
+export TAG=latest
 docker build -f Dockerfile -t $IMAGE_NAME:$TAG .
-docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:travis-$TRAVIS_BUILD_NUMBER
+docker tag $IMAGE_NAME:$TAG $IMAGE_NAME:$TAG
