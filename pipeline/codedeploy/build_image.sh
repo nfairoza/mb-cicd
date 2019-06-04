@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Building docker IMAGE "
-cd ../dockerimage/
+cd dockerimage/
 echo "Switching directory " `pwd` 
 export IMAGE_NAME=239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd
 export TAG=latest

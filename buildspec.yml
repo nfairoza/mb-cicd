@@ -3,17 +3,17 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - pwd
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region us-east-2)
       - $(chmod +x pipeline/codedeploy/*.sh)
   build:
     commands:
       - echo Build started on `date`
-      #- pipeline/codedeploy/build_html.sh
       - pipeline/codedeploy/preq.sh
       - pipeline/codedeploy/build_image.sh      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker push 239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd:latest
