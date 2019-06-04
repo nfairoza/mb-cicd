@@ -4,13 +4,13 @@ phases:
   pre_build:
     commands:
       - pwd
+      - pipeline/codedeploy/preq.sh
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region us-east-2)
       - $(chmod +x pipeline/codedeploy/*.sh)
   build:
     commands:
       - echo Build started on `date`
-      - pipeline/codedeploy/preq.sh
       - pipeline/codedeploy/build_image.sh      
   post_build:
     commands:
