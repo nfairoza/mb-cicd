@@ -4,14 +4,14 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      - $(chmod +x codedeploy/*.sh)
+      - $(aws ecr get-login --no-include-email --region us-east-2)
+      - $(chmod +x pipeline/codedeploy/*.sh)
   build:
     commands:
       - echo Build started on `date`
-      - codedeploy/build_html.sh
-      - codedeploy/build_java.sh
-      - codedeploy/go.sh      
+      #- pipeline/codedeploy/build_html.sh
+      - pipeline/codedeploy/preq.sh
+      - pipeline/codedeploy/build_image.sh      
   post_build:
     commands:
       - echo Build completed on `date`

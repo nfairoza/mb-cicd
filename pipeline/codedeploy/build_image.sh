@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "Building JAVA IMAGE "
-cd ../java-service/
+echo "Building docker IMAGE "
+cd ../dockerimage/
 echo "Switching directory " `pwd` 
 export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 export IMAGE_NAME=stmalike/$SERVICE_DIR
