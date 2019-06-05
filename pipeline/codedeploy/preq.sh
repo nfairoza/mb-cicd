@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo su
+#sudo su
 apt update
 apt-get remove docker docker-engine docker.io
 apt-get update
@@ -11,12 +11,17 @@ apt-get install \
     docker-ce \
     docker
 
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+docker --version
 # apt update
 apt install unzip
 #apt install python-minimal -y
 
 #apt install python-pip -y
-apt install python3-pip
+apt install python3-pip -y
+pip3 install --upgrade pip
+
 pip3 install awscli --upgrade
 #pip install awscli --upgrade
 # curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
