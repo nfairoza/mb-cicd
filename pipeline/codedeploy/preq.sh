@@ -8,14 +8,13 @@ apt-get install \
     curl \
     software-properties-common \
 curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+get-docker.sh
 docker --version
 apt-get install docker docker-engine docker.io
 echo Installed Docker
 # apt update
 apt install unzip
-#apt install python-minimal -y
-
+apt install python-minimal -y
 apt install python-pip -y
 #apt install python3-pip -y
 pip install --upgrade pip
