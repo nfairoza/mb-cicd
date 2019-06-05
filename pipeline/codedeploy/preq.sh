@@ -19,7 +19,7 @@ python get-pip.py
 /usr/local/bin/pip install awscli --upgrade 
 cp /usr/local/bin/aws /usr/bin/
 aws --version
-echo  ********************************* Make sure docker runs *********************************
+echo  ********************************* Starting docker  *********************************
 systemctl start docker
 docker ps
 service docker start
