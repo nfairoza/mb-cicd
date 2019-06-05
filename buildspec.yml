@@ -17,4 +17,6 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
+      - sudo su
+      - docker ps
       - docker push 239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd:latest

@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo su
 echo "Building docker IMAGE "
 #cd  pipeline/dockerimage
 echo "Switching directory " `pwd` 
