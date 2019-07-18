@@ -9,5 +9,5 @@ export IMAGE_NAME=239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd
 export TAG=v1
 docker ps
 docker images
-docker build -f pipeline/dockerimage/Dockerfile -t $IMAGE_NAME:$TAG .
-docker tag $IMAGE_NAME:$TAG $IMAGE_NAME:$TAG
+docker build -f pipeline/dockerimage/Dockerfile -t $IMAGE_NAME:latest .
+docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
