@@ -13,9 +13,10 @@ phases:
     commands:
       - echo Build started on `date`
       - pipeline/codedeploy/build_image.sh      
+      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker ps
-      - docker push 239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd:v1
+      - docker push 239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd:v2

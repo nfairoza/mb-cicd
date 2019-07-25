@@ -6,7 +6,7 @@ echo "ls" `ls`
 
 pgrep -f docker > /dev/null || echo "starting docker"
 export IMAGE_NAME=239144702963.dkr.ecr.us-east-2.amazonaws.com/octank-cicd
-export TAG=v1
+export TAG=v2
 docker ps
 docker images
 docker build -f pipeline/dockerimage/Dockerfile -t $IMAGE_NAME:latest .
